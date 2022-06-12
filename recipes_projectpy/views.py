@@ -17,14 +17,14 @@ class DetailsTable(APIView):
             serializeObj.save()
             return Response(200)
         return Response(serializeObj.errors)
-    
+
     def put(self, request, pk):
         try:
-            detailObj=DetailsModel.objects.get(pk=pk)
+            detailObj = DetailsModel.objects.get(pk=pk)
         except:
             return Response("Not Found in Database")
 
-        serializeObj=DetailsSerializer(detailObj, data=request.data)
+        serializeObj = DetailsSerializer(detailObj, data=request.data)
         if serializeObj.is_valid():
             serializeObj.save()
             return Response(200)
@@ -38,4 +38,3 @@ class DetailsTable(APIView):
 
         detailObj.delete()
         return Response(200)
-

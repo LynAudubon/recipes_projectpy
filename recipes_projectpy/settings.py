@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'recipes_projectpy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'flpprjzw',
+        'USER': 'flpprjzw',
+        'PASSWORD': 'MT5OHzHZW8uGr8B1dNH_iZuZRVmZ7Psg',
+        'HOST': 'queenie.db.elephantsql.com',
+        'PORT': '',
     }
 }
 

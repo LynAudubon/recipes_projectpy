@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import  { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button } from '@material-ui/core';
@@ -14,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import AppButton from './AppButton';
 import  { recipeSlice } from '../redux/slice/recipe';
 import { DELETE_RECIPE_BY_ID, GET_RECIPES } from '../redux/types';
 
@@ -48,7 +50,11 @@ function Row(props) {
         </TableCell>
         <TableCell align="right">{row.name}</TableCell>
         <TableCell align="right">{row.category}</TableCell>
-        <TableCell align="right"><Button onClick={() => dispatch(recipeSlice(row))} variant='contained'>UPDATE</Button></TableCell>
+        <TableCell align="right">
+          <Link to={`/update-recipe/${row.id}`}>
+            <Button onClick={() => dispatch(recipeSlice(row))} variant='contained'>UPDATE</Button>
+          </Link>
+        </TableCell>
         <TableCell align="right"><Button onClick={() => dispatch({type: DELETE_RECIPE_BY_ID, id: row.id})}  variant='contained'>DELETE</Button></TableCell>
       </TableRow> 
       <TableRow>
@@ -87,7 +93,7 @@ Row.propTypes = {
     imageUrl: PropTypes.string.isRequired,
     ingredients: PropTypes.string.isRequired,
     instructions: PropTypes.string.isRequired,
-    serving_size: PropTypes.number.isRequired,
+    serving_size: PropTypes.any.isRequired,
     category: PropTypes.string.isRequired,
     notes: PropTypes.string.isRequired,
     date_added: PropTypes.string.isRequired,
@@ -106,14 +112,20 @@ export default function RecipesTable() {
 
   console.log('rows', rows);
     return (
-      <TableContainer component={Paper}>
+      <div class='container'>
+        <Link to='/add-recipe'>
+          <AppButton >Add Recipe</AppButton>
+        </Link>
+        
+        <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableBody>
-            {rows.map((row) => (
+            {rows.length > 0 ? rows.map((row) => (
               <Row key={row.id} row={row} />
-            ))}
+            )) : <h2>No recipes</h2>}
           </TableBody>
         </Table>
       </TableContainer>
+      </div>   
     );
 }

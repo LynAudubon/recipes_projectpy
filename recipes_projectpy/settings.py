@@ -1,3 +1,4 @@
+import os
 """
 Django settings for recipes_projectpy project.
 
@@ -53,10 +54,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'recipes_projectpy.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'client', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,6 +124,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# configure backend to connect to react frontend, add access to static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'client', 'build', 'static')]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

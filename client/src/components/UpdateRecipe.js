@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container, Input, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -5,7 +6,8 @@ import { recipeSlice } from '../redux/slice/recipe';
 import { nanoid } from '@reduxjs/toolkit';
 import { CREATE_RECIPE, UPDATE_RECIPE_BY_ID } from '../redux/types/index';
 
-const RecipesForm = () => {
+
+const UpdateRecipe = () => {
     const recipe = useSelector(state => state.recipe);
     const dispatch = useDispatch();
     // console.log('recipeID',recipe.id === 0)
@@ -36,10 +38,10 @@ const RecipesForm = () => {
         }))
 
         navigate('/');
-
     }
-    return <>
-        <Container>
+
+  return (
+    <Container>
             <label>Name:</label>
             <Input onChange={handleChange('name')} placeholder='Enter name' value={recipe.name} fullWidth></Input>
              <label>Serving Size:</label>
@@ -54,7 +56,7 @@ const RecipesForm = () => {
             <Input onChange={handleChange('notes')} placeholder='Enter details'value={recipe.notes} fullWidth></Input>
             <Button onClick={() => handleSubmit()} variant='contained' fullWidth>Submit</Button>
         </Container>
-   </>
+  )
 }
 
-export default RecipesForm;
+export default UpdateRecipe;

@@ -1,13 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
- const dateAdded = () => {
-        let count = 0;
-        let date;
-
-        if(count > 0) return date;
-        date = new Date().toDateString()
-        return date;
-    };
+const dateAdded = () => {
+    let count = 0;
+    let date;
+    
+    return function setDate() {
+        if (count === 0){
+            count++;
+            date = new Date().toDateString()
+            return date;
+        }else{
+            return date;
+        } 
+    }
+};
 
 const dateModified = () => new Date().toDateString();
 

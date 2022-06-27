@@ -39,7 +39,7 @@ const RecipesForm = () => {
 
     }
     return <>
-        <Container>
+        <Container className='containers'>
             <label>Name:</label>
             <Input onChange={handleChange('name')} placeholder='Enter name' value={recipe.name} fullWidth></Input>
              <label>Serving Size:</label>

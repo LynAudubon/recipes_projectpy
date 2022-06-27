@@ -17,13 +17,13 @@ const RecipesForm = () => {
     }
 
     const handleSubmit = () => {
-        console.log('handlesubmit')
-        console.log('id', recipe.id)
+        // console.log('handlesubmit')
+        // console.log('id', recipe.id)
         // recipe.id === 0 ? dispatch(addRecipeSlice({...recipe, id: nanoid(8)})) : dispatch(updateRecipeSlice(recipe))
-        recipe.id === 0 ? dispatch({type: CREATE_RECIPE, recipe: {...recipe, id: nanoid(8)}}) : dispatch({type: UPDATE_RECIPE_BY_ID, recipe})
+        recipe.id === '' ? dispatch({type: CREATE_RECIPE, recipe: {...recipe, id: nanoid(8)}}) : dispatch({type: UPDATE_RECIPE_BY_ID, recipe})
 
         dispatch(recipeSlice({
-            id: 0,
+            id: '',
             name: '',
             imageUrl: 'https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=586&q=80',
             ingredients: '',

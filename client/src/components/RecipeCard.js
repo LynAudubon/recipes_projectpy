@@ -44,7 +44,7 @@ export default function RecipeCard(props) {
 //   console.log('id', id);
   const items = useSelector(state => state.recipes);
 //   console.log('items', items)
-  const recipe = items.filter((x)=>  x.id === id)[0];
+  const recipe = items.filter((x)=> x.id === id)[0];
   const ingredientsList = recipe.ingredients.split(',');
     
   const [expanded, setExpanded] = React.useState(false);

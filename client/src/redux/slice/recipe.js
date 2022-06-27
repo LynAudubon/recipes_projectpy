@@ -4,7 +4,7 @@ const dateAdded = () => {
     let count = 0;
     let date;
     
-    return function setDate() {
+    return (function setDate() {
         if (count === 0){
             count++;
             date = new Date().toDateString()
@@ -12,7 +12,7 @@ const dateAdded = () => {
         }else{
             return date;
         } 
-    }
+    })();
 };
 
 const dateModified = () => new Date().toDateString();
@@ -20,7 +20,7 @@ const dateModified = () => new Date().toDateString();
 const recipe = createSlice({
     name: 'recipe',
     initialState: {
-        id: 0,
+        id: '',
         name: '',
         imageUrl: 'https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=586&q=80',
         ingredients: '',

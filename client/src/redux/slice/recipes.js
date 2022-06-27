@@ -22,8 +22,8 @@ const recipes = createSlice({
         },
 
         addRecipeSlice: (state, action) => {
-            console.log('action',action)
-            console.log('state',state)
+            // console.log('action',action)
+            // console.log('state',state)
             state.push(action.payload)
             return state
         },

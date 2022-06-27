@@ -6,9 +6,9 @@ import { recipeSlice } from '../slice/recipe';
 import { put, takeEvery } from 'redux-saga/effects'
 
 export function* getRecipesSaga() {
-    console.log('getSagas')
+    // console.log('getSagas')
     const recipes = yield getRecipesAPI()
-    console.log('saga',recipes);
+    // console.log('saga',recipes);
     yield put(allRecipesSlice(recipes.data))
 }
 
@@ -18,18 +18,18 @@ export function* getRecipeByIdSaga(action) {
 }
 
 export function* createRecipeSaga(action){
-    console.log('called')
+    // console.log('called')
     yield createRecipeAPI(action.recipe)
     yield put(addRecipeSlice(action.recipe))
 }
 
 export function* updateRecipeSaga(action) {
-    console.log('update',action)
+    // console.log('update',action)
     yield updateRecipeAPI(action.recipe)
     yield put(updateRecipeSlice(action.recipe))
 }
 export function* deleteRecipeSaga (action) {
-    console.log('delete',action.id)
+    // console.log('delete',action.id)
     yield deleteRecipeAPI(action.id)
     yield put(deleteRecipeSlice(action.id))
 }

@@ -19,10 +19,10 @@ const UpdateRecipe = () => {
     }
 
     const handleSubmit = () => {
-        console.log('handlesubmit')
-        console.log('id', recipe.id)
+        // console.log('handlesubmit')
+        // console.log('id', recipe.id)
         // recipe.id === 0 ? dispatch(addRecipeSlice({...recipe, id: nanoid(8)})) : dispatch(updateRecipeSlice(recipe))
-        recipe.id === 0 ? dispatch({type: CREATE_RECIPE, recipe: {...recipe, id: nanoid(8)}}) : dispatch({type: UPDATE_RECIPE_BY_ID, recipe})
+        recipe.id === 0 ? dispatch({type: CREATE_RECIPE, recipe: {...recipe, id: ''}}) : dispatch({type: UPDATE_RECIPE_BY_ID, recipe})
 
         dispatch(recipeSlice({
             id: 0,

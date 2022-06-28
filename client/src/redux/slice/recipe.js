@@ -1,25 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 
- const dateAdded = () => {
-        let count = 0;
-        let date;
-
-        if(count > 0) return date;
-        date = new Date().toDateString()
-        return date;
-    };
+const dateAdded = () => {
+    let count = 0;
+    let date;
+    
+    return (function setDate() {
+        if (count === 0){
+            count++;
+            date = new Date().toDateString()
+            return date;
+        }else{
+            return date;
+        } 
+    })();
+};
 
 const dateModified = () => new Date().toDateString();
 
 const recipe = createSlice({
     name: 'recipe',
     initialState: {
-        id: 0,
+        id: '',
         name: '',
-        imageUrl: 'https://media.istockphoto.com/photos/the-cheesy-gordita-beef-taco-picture-id1303687532?b=1&k=20&m=1303687532&s=170667a&w=0&h=HbmiNR2rfTKsukjhBpN2vjlWfCt_uYgPGwunuCVICqs=',
+        imageUrl: 'https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=586&q=80',
         ingredients: '',
         instructions: '',
-        serving_size: undefined,
+        serving_size: 0,
         category: '',
         notes: '',
         date_added: '',	

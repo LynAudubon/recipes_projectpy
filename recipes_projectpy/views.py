@@ -3,14 +3,20 @@ from recipes_projectpy.serialize import DetailsSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from recipes_projectpy import serialize
-
+from django.shortcuts import render
 
 class DetailsTable(APIView):
+     
+    def front(request):
+        context = {}
+        return render(request, "index.html", context)
+
     def get(self, request):
         detailsObj = DetailsModel.objects.all()
         dlSerializerObj = DetailsSerializer(detailsObj, many=True)
         return Response(dlSerializerObj.data)
 
+    # @csrf_protect
     def post(self, request):
         serializeObj = DetailsSerializer(data=request.data)
         if serializeObj.is_valid():

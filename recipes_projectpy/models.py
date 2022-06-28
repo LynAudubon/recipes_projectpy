@@ -4,6 +4,7 @@ from django.db import models
 class DetailsModel(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
+    imageUrl = models.URLField(default='')
     ingredients = models.CharField(max_length=5000)
     instructions = models.CharField(max_length=5000)
     serving_size = models.CharField(max_length=100)

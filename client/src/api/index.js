@@ -1,16 +1,17 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:8000'
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
-export const getRecipesAPI = async () => axios.get('/recipes')
+axios.defaults.baseURL = 'http://localhost:8000/api'
 
-export const getRecipeByIdAPI = async (id) => axios.get(`/recipes/${id}`)
+export const getRecipesAPI = async () => axios.get('/recipes/')
 
-export const createRecipeAPI = async (recipe) => axios.post('/recipes', recipe)
+export const getRecipeByIdAPI = async (id) => axios.get(`/recipes/${id}/`)
 
-export const updateRecipeAPI = async (recipe) => axios.put(`/recipes/${recipe.id}`, recipe)
+export const createRecipeAPI = async (recipe) => axios.post('/recipes/', recipe)
 
-export const deleteRecipeAPI = async (id) => axios.delete(`/recipes/${id}`)
+export const updateRecipeAPI = async (recipe) => axios.put(`/recipes/${recipe.id}/`, recipe)
 
-
+export const deleteRecipeAPI = async (id) => axios.delete(`/recipes/${id}/`)
 

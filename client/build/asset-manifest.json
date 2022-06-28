@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.d690301e.css",
-    "main.js": "/static/js/main.1a92bead.js",
+    "main.css": "/static/css/main.9b25d534.css",
+    "main.js": "/static/js/main.237a2649.js",
+    "static/media/katie-smith-uQs1802D0CQ-unsplash.jpg": "/static/media/katie-smith-uQs1802D0CQ-unsplash.20af1cea970a6783959c.jpg",
     "index.html": "/index.html",
-    "main.d690301e.css.map": "/static/css/main.d690301e.css.map",
-    "main.1a92bead.js.map": "/static/js/main.1a92bead.js.map"
+    "main.9b25d534.css.map": "/static/css/main.9b25d534.css.map",
+    "main.237a2649.js.map": "/static/js/main.237a2649.js.map"
   },
   "entrypoints": [
-    "static/css/main.d690301e.css",
-    "static/js/main.1a92bead.js"
+    "static/css/main.9b25d534.css",
+    "static/js/main.237a2649.js"
   ]
 }

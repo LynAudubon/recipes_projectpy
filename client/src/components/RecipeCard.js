@@ -16,6 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MenuBookRoundedIcon from '@material-ui/icons/MenuBookRounded';
 import RestaurantRoundedIcon from '@material-ui/icons/RestaurantRounded';
+import '../css/global.css';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,7 +32,7 @@ const ExpandMore = styled((props) => {
 
 function Label(props) {
     return (
-        <label class="container">{props.data} 
+        <label class="contained">{props.data} 
             <input type="checkbox"/>
             <span class="checkmark"></span>
         </label>

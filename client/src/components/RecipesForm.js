@@ -35,7 +35,7 @@ const RecipesForm = () => {
             date_modified: ''
         }))
 
-        navigate('/');
+        navigate('/dashboard');
 
     }
     return <>

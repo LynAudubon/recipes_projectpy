@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react'
 import  { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -284,8 +285,13 @@ export default function EnhancedTable() {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+  const {user, isAuthenticated, isLoading } = useAuth0();
+
   return (
-    <Box sx={{ width: "100%", height: "100vh", flexdDirection:"column"}}>
+    isLoading ? <p>Loading...</p> :(
+    isAuthenticated && (
+      <Box sx={{ width: "100%", height: "100vh", flexdDirection:"column"}}>
       <Paper sx={{ width: "100%"}}>
         <EnhancedTableToolbar numSelected={selected.length} onDelete={handleDelete}/>
         <TableContainer sx={{ width: "fit-content", overflow: "auto"}}>
@@ -384,5 +390,5 @@ export default function EnhancedTable() {
         label="Dense padding"
       />
     </Box>
-  );
-}
+  )))
+};
